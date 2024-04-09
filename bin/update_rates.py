@@ -14,7 +14,7 @@ pattern = "20 of (.*) Works in"
 headers = {'user-agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15'}
 
 def get_rate(fics_yesterday, fics_today, yesterdays_rate):
-    AVERAGE_NEW_FICS = 4000
+    AVERAGE_NEW_FICS = 1700
     todays_new_fics = fics_today - fics_yesterday
     relative_new_works = todays_new_fics / AVERAGE_NEW_FICS
     return(yesterdays_rate * relative_new_works) 
