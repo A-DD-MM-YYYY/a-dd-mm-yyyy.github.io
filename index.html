@@ -6,7 +6,7 @@
     <title>NASDIQ</title>
     <script>
       (async function(){
-        const response = await fetch('www.nasfaq.xyz/data/daily_rates.json')
+        const response = await fetch('nasfaq.xyz/data/daily_rates.json')
         const docData = await response.json();
 
         codes = ["EUR","USD","JPY","GBP","YRI"]
@@ -17,7 +17,7 @@
       })();
 
       (async function(){
-        const response = await fetch('www.nasfaq.xyz/data/daily_rates.json')
+        const response = await fetch('nasfaq.xyz/data/daily_rates.json')
         const docData = await response.json();
 
         codes = ["YRI_EUR","YRI_USD","YRI_JPY","YRI_GBP","YRI_YOI"]
