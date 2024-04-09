@@ -3,9 +3,114 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World! Site Title</title>
+    <title>NASDIQ</title>
+    <script>
+      (async function(){
+        const response = await fetch('https://a-dd-mm-yyyy.github.io/yaoi_yuri_dollar_stock_exchange/data/daily_rates.json')
+        const docData = await response.json();
+
+        codes = ["EUR","USD","JPY","GBP","YRI"]
+        base_rates = [0.021, 0.023, 3.41, 0.018, 0.445]
+        base_rates.forEach((rate, index) => {
+          document.getElementById(codes[index]).innerHTML = rate * docData["yaoi_rate"];
+        }); 
+      })();
+
+      (async function(){
+        const response = await fetch('https://a-dd-mm-yyyy.github.io/yaoi_yuri_dollar_stock_exchange/data/daily_rates.json')
+        const docData = await response.json();
+
+        codes = ["YRI_EUR","YRI_USD","YRI_JPY","YRI_GBP","YRI_YOI"]
+        base_rates = [0.046, 0.05, 7.65, 0.04, 2.242]
+        base_rates.forEach((rate, index) => {
+          document.getElementById(codes[index]).innerHTML = rate * docData["yuri_rate"];
+        }); 
+      })();
+    </script>
   </head>
+  
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-radius: 10px;
+      
+    }
+    th, td {
+      background-color: #96D4D4;
+      text-align:center
+    }
+  </style>
   <body>
-    <h1>Hello World!</h1>
+    <table>
+      <th>
+        YAOI DOLLAR 
+      </th>
+      <tr>
+        <td>Currency</td>
+        <td>Code</td>
+        <td>Rate Per 1 Yaoi Dollar</td>
+      </tr>
+      <tr>
+        <td>Euro</td>
+        <td>EUR</td>
+        <td id="EUR"></td>
+      </tr>
+      <tr>
+        <td>Dollar</td>
+        <td>USD</td>
+        <td id="USD"></td>
+      </tr>
+      <tr>
+        <td>Japanese Yen</td>
+        <td>JPY</td>
+        <td id="JPY"></td>
+      </tr>
+      <tr>
+        <td>Pound Sterling</td>
+        <td>GBP</td>
+        <td id="GBP"></td>
+      </tr>
+      <tr>
+        <td>Yuri Dollar</td>
+        <td>YRI</td>
+        <td id="YRI"></td>
+      </tr>
+    </table>
+
+    <table>
+      <th>
+        YURI DOLLAR 
+      </th>
+      <tr>
+        <td>Currency</td>
+        <td>Code</td>
+        <td>Rate Per 1 Yaoi Dollar</td>
+      </tr>
+      <tr>
+        <td>Euro</td>
+        <td>EUR</td>
+        <td id="YRI_EUR"></td>
+      </tr>
+      <tr>
+        <td>Dollar</td>
+        <td>USD</td>
+        <td id="YRI_USD"></td>
+      </tr>
+      <tr>
+        <td>Japanese Yen</td>
+        <td>JPY</td>
+        <td id="YRI_JPY"></td>
+      </tr>
+      <tr>
+        <td>Pound Sterling</td>
+        <td>GBP</td>
+        <td id="YRI_GBP"></td>
+      </tr>
+      <tr>
+        <td>Yaoi Dollar</td>
+        <td>YOI</td>
+        <td id="YRI_YOI"></td>
+      </tr>
+    </table>
   </body>
 </html>
