@@ -13,8 +13,7 @@ import re
 pattern = "20 of (.*) Works in"
 headers = {'user-agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15'}
 
-def get_rate(fics_yesterday, fics_today, yesterdays_rate):
-    AVERAGE_NEW_FICS = 1700
+def get_rate(fics_yesterday, fics_today, yesterdays_rate, AVERAGE_NEW_FICS):
     todays_new_fics = fics_today - fics_yesterday
     relative_new_works = todays_new_fics / AVERAGE_NEW_FICS
     return(yesterdays_rate * relative_new_works) 
@@ -39,13 +38,13 @@ def main():
         tomorrow_rate = int(yaoi_fic_count.replace(',',''))
         data["yaoi_yesterday"] = today_rate
         data["yaoi_today"] = tomorrow_rate
-        data["yaoi_rate"] = get_rate(today_rate, tomorrow_rate, data["yaoi_rate"])
+        data["yaoi_rate"] = get_rate(today_rate, tomorrow_rate, data["yaoi_rate"], 2500)
 
         today_rate = data["yuri_today"]
         tomorrow_rate = int(yuri_fic_count.replace(',',''))
         data["yuri_yesterday"] = today_rate
         data["yuri_today"] = tomorrow_rate
-        data["yuri_rate"] = get_rate(today_rate, tomorrow_rate, data["yuri_rate"])
+        data["yuri_rate"] = get_rate(today_rate, tomorrow_rate, data["yuri_rate"],600)
 
         new_data = json.dumps(data)
 
