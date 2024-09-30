@@ -38,13 +38,13 @@ def main():
         tomorrow_rate = int(yaoi_fic_count.replace(',',''))
         data["yaoi_yesterday"] = today_rate
         data["yaoi_today"] = tomorrow_rate
-        data["yaoi_rate"] = get_rate(today_rate, tomorrow_rate, data["yaoi_rate"], 2500)
+        data["yaoi_rate"] = get_rate(today_rate, tomorrow_rate, data["yaoi_rate"], 2370)
 
         today_rate = data["yuri_today"]
         tomorrow_rate = int(yuri_fic_count.replace(',',''))
         data["yuri_yesterday"] = today_rate
         data["yuri_today"] = tomorrow_rate
-        data["yuri_rate"] = get_rate(today_rate, tomorrow_rate, data["yuri_rate"],600)
+        data["yuri_rate"] = get_rate(today_rate, tomorrow_rate, data["yuri_rate"],500)
 
         new_data = json.dumps(data)
 
